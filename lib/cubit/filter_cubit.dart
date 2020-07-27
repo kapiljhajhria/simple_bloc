@@ -4,28 +4,28 @@ import 'package:simple_bloc/model/pet.dart';
 part 'filter_state.dart';
 
 class FilterCubit extends Cubit<FilterState> {
-  FilterCubit() : super(FilterState.init());
+  FilterCubit() : super(FilterInitialState());
   void changeName(String name) {
-    emit(FilterState.copyWith(
+    emit(FilterCopyWith(Pet(
       name: name,
       type: state.pet.type,
       size: state.pet.size,
-    ));
+    )));
   }
 
   void changeType(PetType type) {
-    emit(FilterState.copyWith(
+    emit(FilterCopyWith(Pet(
       name: state.pet.name,
       type: type,
       size: state.pet.size,
-    ));
+    )));
   }
 
   void changeSize(PetSize size) {
-    emit(FilterState.copyWith(
+    emit(FilterCopyWith(Pet(
       name: state.pet.name,
       type: state.pet.type,
       size: size,
-    ));
+    )));
   }
 }
